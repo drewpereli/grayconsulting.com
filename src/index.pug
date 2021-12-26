@@ -31,16 +31,17 @@ html.text-slate-900.tracking-wider
       +section.mt-16
         +small-header We're Gray Consulting
         .mt-8.text-4xl.font-bold A place where leading edge technology and forward thinking gives rise to ground-breaking solutions.
-      +section.bg-slate-900.text-slate-300
-        .mt-8.flex.items-center.justify-center
+      +section.bg-slate-900.text-slate-300(class="md:flex md:space-x-16")
+        .mt-8.flex.items-center.justify-center(class="md:w-1/3 md:flex-shrink-0 md:mt-0")
           .rounded-full.border-2.border-slate-100.h-64.w-64.p-1
             .rounded-full.w-full.h-full.bg-barney.bg-center.bg-top
-        +small-header({light: true}).mt-8 Payment Technology Experts
-        .mt-8.text-4xl.font-bold Gray Consulting exists to provide services to merchants, merchant acquirers, and payment technology providers.
-        .mt-16.text-xl.
-          The payment arena for merchants is more like the wild wild west than it has been in years - hundreds of interchange rates, mobile PoS, Apple Pay, alternative payments, tokenization, and more. Gray Consulting has the expertise to simplify this complex terrain, and make sure your business is running at peak operational and financial performance.
+        .mt-8(class="md:mt-0")
+          +small-header({light: true}) Payment Technology Experts
+          .mt-8.text-4xl.font-bold Gray Consulting exists to provide services to merchants, merchant acquirers, and payment technology providers.
+          .mt-16.text-xl.
+            The payment arena for merchants is more like the wild wild west than it has been in years - hundreds of interchange rates, mobile PoS, Apple Pay, alternative payments, tokenization, and more. Gray Consulting has the expertise to simplify this complex terrain, and make sure your business is running at peak operational and financial performance.
       +section.bg-indigo-400.flex.divide-x-2.divide-slate-900
-        .flex.items-center.justify-end.text-6xl.font-bold.pr-8(class="w-1/2") Expertise
+        .flex.items-center.justify-end.font-bold.text-4xl.pr-8(class="w-1/2 md:text-6xl") Expertise
         .flex.flex-col.justify--center.pl-8(class="w-1/2").font-light
           div Strategic
             span.ml-1.font-bold Payment Advice
@@ -53,23 +54,23 @@ html.text-slate-900.tracking-wider
       +section
         +small-header What we Do
         .mt-8.text-4xl.font-bold The payment world is confusing. Don't go it alone.
-        .space-y-32.mt-16.flex.flex-col.items-center
+        .space-y-32.mt-16.flex.flex-col.items-center(class="md:flex-row md:justify-around md:space-y-0")
           div.flex.flex-col.items-center
             .h-48.w-48.flex.items-center.justify-center.rounded-full.bg-indigo-400
               i.fas.fa-lock.text-8xl
-            .mt-8.text-center Let Gray Consulting evaluate the status of your
+            .mt-8.text-center(class="md:w-3/4") Let Gray Consulting evaluate the status of your
               span.font-bold.ml-1 PCI compliance.
           div.flex.flex-col.items-center
             .h-48.w-48.flex.items-center.justify-center.rounded-full.bg-indigo-400
               i.fas.fa-sd-card.text-8xl
-            .mt-8.text-center The buzz in payments right now is EMV.
+            .mt-8.text-center(class="md:w-3/4") The buzz in payments right now is EMV.
               span.font-bold.ml-1 Are you ready?
           div.flex.flex-col.items-center
             .h-48.w-48.flex.items-center.justify-center.rounded-full.bg-indigo-400
               i.fas.fa-people-arrows.text-8xl
-            .mt-8.text-center We can help you with
+            .mt-8.text-center(class="md:w-3/4") We can help you with
               span.font-bold.ml-1 interchange qualification analysis.
-      div.bg-dogs.bg-center.h-128
+      div.bg-dogs.bg-center.h-128.bg-cover
       +section.bg-slate-900.text-slate-300
         +small-header({light: true}) Testimonials 
         .mt-8.text-4xl.font-bold Our clients fuuuuucking love us.
@@ -82,21 +83,23 @@ html.text-slate-900.tracking-wider
               {quote: "There is no joy, no pain, no night no day. There is no hunger, no thirst, no day, no night, no life, no death. There is only Gray Consulting.", person: "Martha Gray"},
             ]
           each testimonial in testimonials
-            div
+            div(class="md:px-32")
               .italic.text-center.font-light= `"${testimonial.quote}"`
               .mt-4.text-right.text-slate-400= `—${testimonial.person}`
       +section
         +small-header Get in Touch
-        .mt-8.flex.items-center.justify-around
-          each icon in ['fa-twitter', 'fa-facebook', 'fa-linkedin', 'fa-instagram']
-            a.text-2xl.cursor-pointer(class="hover:text-indigo-400")
-              i.fab(class=icon)
-        .mt-8.text-4xl.font-black.text-indigo-400 GC:
-        .mt-16
-          .text-sm.uppercase.font-light deeznuts@grayconsulting.com
-          .text-sm.uppercase.font-light 333-444-5555
-        .mt-16
-          .text-sm.uppercase.font-light 123 good st
-          .text-sm.uppercase.font-light chicago, IL 12345
+        div(class="md:flex")
+          .mt-8.flex.items-center.justify-around(class="md:flex-col md:w-1/3 md:flex-shrink-0 md:space-y-4")
+            each icon in ['fa-twitter', 'fa-facebook', 'fa-linkedin', 'fa-instagram']
+              a.text-2xl.cursor-pointer(class="hover:text-indigo-400")
+                i.fab(class=icon)
+          .mt-8.text-4xl.font-black.text-indigo-400(class="md:mt-0") GC:
+          div.space-y-16.mt-16(class="md:mt-0 md:ml-16")
+            div
+              .text-sm.uppercase.font-light deeznuts@grayconsulting.com
+              .text-sm.uppercase.font-light 333-444-5555
+            div
+              .text-sm.uppercase.font-light 123 good st
+              .text-sm.uppercase.font-light chicago, IL 12345
       .bg-slate-900.text-slate-300.px-4.py-8
         .text-center.font-light Gray Consulting LLC
