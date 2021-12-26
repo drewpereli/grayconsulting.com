@@ -1,15 +1,102 @@
+include components/section
+include components/small-header
+
 doctype html
-html.bg-black
+html.text-slate-900.tracking-wider
   head
     meta(charset='UTF-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(
-      name='description',
-      content='Gray Consulting'
-    )
+    meta(name='description', content='Gray Consulting')
     title Gray Consulting
 
-  body.
-   Gray Consulting
-    
+  body
+    .px-8.py-4.flex.items-center.justify-between
+      span.text-4xl.font-black.text-indigo-400 GC:
+      button#open-mobile-nav-btn.text-4xl.transition-transform(class="hover:scale-125")(type='button')
+        i.fas.fa-bars
+      nav#mobile-nav.absolute.top-0.left-0.w-full.bg-black.bg-opacity-90.transition-transform.duration-500
+        -
+          var pages = [
+            {label: "About Us"},
+            {label: "Training and Education"},
+            {label: "Cost of Acceptance"},
+            {label: "PCI and Security"},
+            {label: "Contact Us"}
+          ]
+        each page in pages
+          div.h-16.flex.items-center.justify-center.uppercase.font-medium.text-white= page.label
+
+    #content.min-h-screen
+      +section.mt-16
+        +small-header We're Gray Consulting
+        .mt-8.text-4xl.font-bold A place where leading edge technology and forward thinking gives rise to ground-breaking solutions.
+      +section.bg-slate-900.text-slate-300
+        .mt-8.flex.items-center.justify-center
+          .rounded-full.border-2.border-slate-100.h-64.w-64.p-1
+            .rounded-full.w-full.h-full.bg-barney.bg-center.bg-top
+        +small-header({light: true}).mt-8 Payment Technology Experts
+        .mt-8.text-4xl.font-bold Gray Consulting exists to provide services to merchants, merchant acquirers, and payment technology providers.
+        .mt-16.text-xl.
+          The payment arena for merchants is more like the wild wild west than it has been in years - hundreds of interchange rates, mobile PoS, Apple Pay, alternative payments, tokenization, and more. Gray Consulting has the expertise to simplify this complex terrain, and make sure your business is running at peak operational and financial performance.
+      +section.bg-indigo-400.flex.divide-x-2.divide-slate-900
+        .flex.items-center.justify-end.text-6xl.font-bold.pr-8(class="w-1/2") Expertise
+        .flex.flex-col.justify--center.pl-8(class="w-1/2").font-light
+          div Strategic
+            span.ml-1.font-bold Payment Advice
+          div PCI and
+            span.ml-1.font-bold Payment Security
+          div Project
+            span.ml-1.font-bold Management
+          div Industry
+            span.ml-1.font-bold Regulations
+      +section
+        +small-header What we Do
+        .mt-8.text-4xl.font-bold The payment world is confusing. Don't go it alone.
+        .space-y-32.mt-16.flex.flex-col.items-center
+          div.flex.flex-col.items-center
+            .h-48.w-48.flex.items-center.justify-center.rounded-full.bg-indigo-400
+              i.fas.fa-lock.text-8xl
+            .mt-8.text-center Let Gray Consulting evaluate the status of your
+              span.font-bold.ml-1 PCI compliance.
+          div.flex.flex-col.items-center
+            .h-48.w-48.flex.items-center.justify-center.rounded-full.bg-indigo-400
+              i.fas.fa-sd-card.text-8xl
+            .mt-8.text-center The buzz in payments right now is EMV.
+              span.font-bold.ml-1 Are you ready?
+          div.flex.flex-col.items-center
+            .h-48.w-48.flex.items-center.justify-center.rounded-full.bg-indigo-400
+              i.fas.fa-people-arrows.text-8xl
+            .mt-8.text-center We can help you with
+              span.font-bold.ml-1 interchange qualification analysis.
+      div.bg-dogs.bg-center.h-128
+      +section.bg-slate-900.text-slate-300
+        +small-header({light: true}) Testimonials 
+        .mt-8.text-4xl.font-bold Our clients fuuuuucking love us.
+        .mt-16.grid.grid-cols-2.gap-x-16.gap-y-32.place-content-around.justify-center.items-center
+          - 
+            var testimonials = [
+              {quote: "Gray Consulting is the best.", person: "Visa"},
+              {quote: "I refinanced my mortgage just so I'd have more money to pay these guys. They deserve it.", person: "Jeff Bezos"},
+              {quote: "I used to have a family. Now I have Gray Consulting. I couldn't be happier.", person: "Anonymous"},
+              {quote: "There is no joy, no pain, no night no day. There is no hunger, no thirst, no day, no night, no life, no death. There is only Gray Consulting.", person: "Martha Gray"},
+            ]
+          each testimonial in testimonials
+            div
+              .italic.text-center.font-light= `"${testimonial.quote}"`
+              .mt-4.text-right.text-slate-400= `—${testimonial.person}`
+      +section
+        +small-header Get in Touch
+        .mt-8.flex.items-center.justify-around
+          each icon in ['fa-twitter', 'fa-facebook', 'fa-linkedin', 'fa-instagram']
+            a.text-2xl.cursor-pointer(class="hover:text-indigo-400")
+              i.fab(class=icon)
+        .mt-8.text-4xl.font-black.text-indigo-400 GC:
+        .mt-16
+          .text-sm.uppercase.font-light deeznuts@grayconsulting.com
+          .text-sm.uppercase.font-light 333-444-5555
+        .mt-16
+          .text-sm.uppercase.font-light 123 good st
+          .text-sm.uppercase.font-light chicago, IL 12345
+      .bg-slate-900.text-slate-300.px-4.py-8
+        .text-center.font-light Gray Consulting LLC
