@@ -1,13 +1,25 @@
 import './src/styles/app.css';
 
-const button = document.getElementById('open-mobile-nav-btn');
-const nav = document.getElementById('mobile-nav');
+const openMobileNavBtn = document.getElementById('open-mobile-nav-btn');
+const mobileNav = document.getElementById('mobile-nav');
 const content = document.getElementById('content');
 
-button.addEventListener('click', () => {
-  nav.classList.add('open');
+openMobileNavBtn.addEventListener('click', () => {
+  mobileNav.classList.add('open');
 });
 
 content.addEventListener('click', () => {
-  nav.classList.remove('open');
+  mobileNav.classList.remove('open');
+});
+
+mobileNav.addEventListener('click', e => {
+	const sectionId = (e.target as HTMLElement).dataset.sectionId;
+
+	const section = document.getElementById(sectionId);
+
+	if (!section) {
+		return;
+	}
+
+	section.scrollIntoView({behavior: 'smooth'});
 });

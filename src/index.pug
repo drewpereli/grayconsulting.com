@@ -13,25 +13,23 @@ html.text-slate-900.tracking-wider
   body
     .px-8.py-4.flex.items-center.justify-between
       span.text-4xl.font-black.text-indigo-400 GC:
-      button#open-mobile-nav-btn.text-4xl.transition-transform(class="hover:scale-125")(type='button')
+      button#open-mobile-nav-btn.text-4xl(type='button')
         i.fas.fa-bars
       nav#mobile-nav.absolute.top-0.left-0.w-full.bg-black.bg-opacity-90.transition-transform.duration-500
         -
           var pages = [
-            {label: "About Us"},
-            {label: "Training and Education"},
-            {label: "Cost of Acceptance"},
-            {label: "PCI and Security"},
-            {label: "Contact Us"}
+            {label: "About Us", sectionId: "about-us"},
+            {label: "Testimonials", sectionId: "testimonials"},
+            {label: "Contact Us", sectionId: "contact-us"},
           ]
         each page in pages
-          div.h-16.flex.items-center.justify-center.uppercase.font-medium.text-white= page.label
+          div.h-16.flex.items-center.justify-center.uppercase.font-medium.text-white(data-section-id=page.sectionId)= page.label
 
     #content.min-h-screen
       +section.mt-16
         +small-header We're Gray Consulting
         .mt-8.text-4xl.font-bold A place where leading edge technology and forward thinking gives rise to ground-breaking solutions.
-      +section.bg-slate-900.text-slate-300(class="md:flex md:space-x-16")
+      +section#about-us.bg-slate-900.text-slate-300(class="md:flex md:space-x-16")
         .mt-8.flex.items-center.justify-center(class="md:w-1/3 md:flex-shrink-0 md:mt-0")
           .rounded-full.border-2.border-slate-100.h-48.w-48.p-1(class="md:h-64 md:w-64")
             .rounded-full.w-full.h-full.bg-barney.bg-center.bg-top
@@ -75,7 +73,7 @@ html.text-slate-900.tracking-wider
             .mt-8.text-center(class="md:w-3/4") We can help you with
               span.font-bold.ml-1 interchange qualification analysis.
       div.bg-dogs.bg-center.h-128.bg-cover
-      +section.bg-slate-900.text-slate-300
+      +section#testimonials.bg-slate-900.text-slate-300
         +small-header({light: true}) Testimonials 
         .mt-8.text-4xl.font-bold Our clients fuuuuucking love us.
         .mt-16.space-y-20(class="md:space-y-0 md:grid md:grid-cols-2 gap-32")
@@ -90,7 +88,7 @@ html.text-slate-900.tracking-wider
             div.flex.flex-col.items-center.justify-center
               .italic.text-center.font-light= `"${testimonial.quote}"`
               .mt-4.text-right.text-slate-400= `—${testimonial.person}`
-      +section
+      +section#contact-us
         +small-header Get in Touch
         div(class="md:flex")
           .mt-8.flex.items-center.justify-around(class="md:flex-col md:w-1/3 md:flex-shrink-0 md:space-y-4")
