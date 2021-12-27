@@ -13,17 +13,20 @@ html.text-slate-900.tracking-wider
   body
     .px-8.py-4.flex.items-center.justify-between
       span.text-4xl.font-black.text-indigo-400 GC:
-      button#open-mobile-nav-btn.text-4xl(type='button')
+      -
+        var pages = [
+          {label: "About Us", sectionId: "about-us"},
+          {label: "Testimonials", sectionId: "testimonials"},
+          {label: "Contact Us", sectionId: "contact-us"},
+        ]
+      button#open-mobile-nav-btn.text-4xl(type='button')(class="md:hidden")
         i.fas.fa-bars
-      nav#mobile-nav.absolute.top-0.left-0.w-full.bg-black.bg-opacity-90.transition-transform.duration-500
-        -
-          var pages = [
-            {label: "About Us", sectionId: "about-us"},
-            {label: "Testimonials", sectionId: "testimonials"},
-            {label: "Contact Us", sectionId: "contact-us"},
-          ]
+      nav#mobile-nav.clickable-nav.absolute.top-0.left-0.w-full.bg-black.bg-opacity-90.text-white.transition-transform.duration-500
         each page in pages
-          div.h-16.flex.items-center.justify-center.uppercase.font-medium.text-white(data-section-id=page.sectionId)= page.label
+          div.h-16.flex.items-center.justify-center.uppercase.font-medium(data-section-id=page.sectionId)= page.label
+      .clickable-nav.hidden(class="md:flex md:items-center md:ml-auto md:space-x-16")
+        each page in pages
+          .uppercase.font-medium.cursor-pointer.transition-colors(class="hover:text-indigo-400" data-section-id=page.sectionId)= page.label
 
     #content.min-h-screen
       +section.mt-16
