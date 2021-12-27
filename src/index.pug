@@ -33,7 +33,7 @@ html.text-slate-900.tracking-wider
         .mt-8.text-4xl.font-bold A place where leading edge technology and forward thinking gives rise to ground-breaking solutions.
       +section.bg-slate-900.text-slate-300(class="md:flex md:space-x-16")
         .mt-8.flex.items-center.justify-center(class="md:w-1/3 md:flex-shrink-0 md:mt-0")
-          .rounded-full.border-2.border-slate-100.h-64.w-64.p-1
+          .rounded-full.border-2.border-slate-100.h-48.w-48.p-1(class="md:h-64 md:w-64")
             .rounded-full.w-full.h-full.bg-barney.bg-center.bg-top
         .mt-8(class="md:mt-0")
           +small-header({light: true}) Payment Technology Experts
@@ -41,16 +41,20 @@ html.text-slate-900.tracking-wider
           .mt-16.text-xl.
             The payment arena for merchants is more like the wild wild west than it has been in years - hundreds of interchange rates, mobile PoS, Apple Pay, alternative payments, tokenization, and more. Gray Consulting has the expertise to simplify this complex terrain, and make sure your business is running at peak operational and financial performance.
       +section.bg-indigo-400.flex.divide-x-2.divide-slate-900
-        .flex.items-center.justify-end.font-bold.text-4xl.pr-8(class="w-1/2 md:text-6xl") Expertise
-        .flex.flex-col.justify--center.pl-8(class="w-1/2").font-light
-          div Strategic
-            span.ml-1.font-bold Payment Advice
-          div PCI and
-            span.ml-1.font-bold Payment Security
-          div Project
-            span.ml-1.font-bold Management
-          div Industry
-            span.ml-1.font-bold Regulations
+        .flex.items-center.justify-end.font-bold.text-2xl.pr-4(class="w-1/2 md:text-6xl md:pr-8") Expertise
+        .flex.flex-col.justify-center.space-y-4.pl-4.font-light.text-sm(class="w-1/2 md:pl-8")
+          div
+            span.inline-block Strategic&nbsp;
+            span.inline-block.font-bold Payment Advice
+          div
+            span.inline-block PCI and&nbsp;
+            span.inline-block.font-bold Payment Security
+          div
+            span.inline-block Project&nbsp;
+            span.inline-block.font-bold Management
+          div
+            span.inline-block Industry&nbsp;
+            span.inline-block.font-bold Regulations
       +section
         +small-header What we Do
         .mt-8.text-4xl.font-bold The payment world is confusing. Don't go it alone.
@@ -74,7 +78,7 @@ html.text-slate-900.tracking-wider
       +section.bg-slate-900.text-slate-300
         +small-header({light: true}) Testimonials 
         .mt-8.text-4xl.font-bold Our clients fuuuuucking love us.
-        .mt-16.grid.grid-cols-2.gap-x-16.gap-y-32.place-content-around.justify-center.items-center
+        .mt-16.space-y-20(class="md:space-y-0 md:grid md:grid-cols-2 gap-32")
           - 
             var testimonials = [
               {quote: "Gray Consulting is the best.", person: "Visa"},
@@ -83,7 +87,7 @@ html.text-slate-900.tracking-wider
               {quote: "There is no joy, no pain, no night no day. There is no hunger, no thirst, no day, no night, no life, no death. There is only Gray Consulting.", person: "Martha Gray"},
             ]
           each testimonial in testimonials
-            div(class="md:px-32")
+            div.flex.flex-col.items-center.justify-center
               .italic.text-center.font-light= `"${testimonial.quote}"`
               .mt-4.text-right.text-slate-400= `—${testimonial.person}`
       +section
@@ -94,12 +98,12 @@ html.text-slate-900.tracking-wider
               a.text-2xl.cursor-pointer(class="hover:text-indigo-400")
                 i.fab(class=icon)
           .mt-8.text-4xl.font-black.text-indigo-400(class="md:mt-0") GC:
-          div.space-y-16.mt-16(class="md:mt-0 md:ml-16")
-            div
-              .text-sm.uppercase.font-light deeznuts@grayconsulting.com
-              .text-sm.uppercase.font-light 333-444-5555
-            div
-              .text-sm.uppercase.font-light 123 good st
-              .text-sm.uppercase.font-light chicago, IL 12345
+          div.space-y-16.mt-16.text-xs.uppercase.font-light(class="md:mt-0 md:ml-16 md:text-lg md:font-normal")
+            div.space-y-4
+              div deeznuts@grayconsulting.com
+              div 333-444-5555
+            div.space-y-4
+              div 123 good st
+              div chicago, IL 12345
       .bg-slate-900.text-slate-300.px-4.py-8
         .text-center.font-light Gray Consulting LLC
